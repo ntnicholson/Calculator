@@ -39,8 +39,16 @@ public class PerformCalculations
 	{
 		double result = 0;
 		
-		result = x / y;
-		
+		try 
+		{
+			result = x / y;
+		}
+		catch (ArithmeticException e) 
+		{
+			System.out.println("Error: " + e.getLocalizedMessage());
+			result = 0;
+		}
+			
 		return result;
 	}
 

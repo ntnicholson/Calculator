@@ -11,7 +11,7 @@ public class CalcMain {
 		char choice = 0;
 		Scanner userInput = new Scanner(System.in);
 		
-		while (choice != 5) 
+		do
 		{
 			PerformCalculations.CalculatorOptions(); //Display options to user
 			choice = userInput.next().charAt(0);
@@ -23,10 +23,31 @@ public class CalcMain {
 					y = GetNumbers(userInput);
 					answer = PerformCalculations.Addition(x, y);
 					System.out.println("The Answer is: " + answer );
+					break;
+				case '2': //Addition
+					x = GetNumbers(userInput);
+					y = GetNumbers(userInput);
+					answer = PerformCalculations.Subtraction(x, y);
+					System.out.println("The Answer is: " + answer );
+					break;
+				case '3': //Addition
+					x = GetNumbers(userInput);
+					y = GetNumbers(userInput);
+					answer = PerformCalculations.Multiplication(x, y);
+					System.out.println("The Answer is: " + answer );
+					break;
+				case '4': //Division
+					x = GetNumbers(userInput);
+					y = GetNumbers(userInput);
+					answer = PerformCalculations.Division(x, y);
+					System.out.println("The Answer is: " + answer );
+					break;
 			}
 			
-		}
+		}while (choice != '5');
+		
 		userInput.close(); //Close scanner
+		System.out.println("Goodbye");
 		System.exit(0); //Shut down application		
 	}
 	public static double GetNumbers(Scanner userInput) 
@@ -34,9 +55,10 @@ public class CalcMain {
 		double number = 0;
 		boolean validNum = false;
 		
+		System.out.println("Input Your Number: ");
+		
 		do
 		{
-			System.out.println("Input Your Number: ");
 			
 			if (userInput.hasNextDouble()) 
 			{
