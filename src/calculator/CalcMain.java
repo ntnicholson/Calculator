@@ -5,8 +5,16 @@ public class CalcMain {
 
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
-		System.out.println("");
+		double num1 = 0;
+		double num2 = 0;
+		
+		// Give User arithmetic options
+		System.out.println("1.) Addition");
+		System.out.println("2:) Subtraction");
+		System.out.println("3:) Multiplication");
+		System.out.println("4:) Division");
+		System.out.println("5:) Close application");
+		
 
 	}
 
