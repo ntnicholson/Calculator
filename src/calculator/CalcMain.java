@@ -7,18 +7,22 @@ public class CalcMain {
 	{
 		double x = 0;
 		double y = 0;
-		int choice = 0;
+		double answer = 0;
+		char choice = 0;
 		Scanner userInput = new Scanner(System.in);
 		
 		while (choice != 5) 
 		{
 			PerformCalculations.CalculatorOptions(); //Display options to user
-			choice = userInput.nextInt();
+			choice = userInput.next().charAt(0);
+			
 			switch (choice) 
 			{
-				case 1: //Addition
+				case '1': //Addition
 					x = GetNumbers(userInput);
-					PerformCalculations.Addition(x, y);
+					y = GetNumbers(userInput);
+					answer = PerformCalculations.Addition(x, y);
+					System.out.println("The Answer is: " + answer );
 			}
 			
 		}
@@ -28,20 +32,25 @@ public class CalcMain {
 	public static double GetNumbers(Scanner userInput) 
 	{
 		double number = 0;
-		boolean numRecieved = false;
+		boolean validNum = false;
 		
-		while (numRecieved == false) 
+		do
 		{
-			try 
+			System.out.println("Input Your Number: ");
+			
+			if (userInput.hasNextDouble()) 
 			{
 				number = userInput.nextDouble();
-				numRecieved = true;
+				validNum = true;
+				
 			}
-			catch (Exception InputMismatchException) 
+			else 
 			{
+				userInput.nextLine();
 				System.out.println("Input not valid, please re-enter your number");
 			}
-		}
+			
+		} while (validNum == false);
 		
 		return number;
 	}
