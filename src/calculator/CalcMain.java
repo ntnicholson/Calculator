@@ -5,17 +5,45 @@ public class CalcMain {
 
 	public static void main(String[] args) 
 	{
-		double num1 = 0;
-		double num2 = 0;
+		double x = 0;
+		double y = 0;
+		int choice = 0;
+		Scanner userInput = new Scanner(System.in);
 		
-		// Give User arithmetic options
-		System.out.println("1.) Addition");
-		System.out.println("2:) Subtraction");
-		System.out.println("3:) Multiplication");
-		System.out.println("4:) Division");
-		System.out.println("5:) Close application");
+		while (choice != 5) 
+		{
+			PerformCalculations.CalculatorOptions(); //Display options to user
+			choice = userInput.nextInt();
+			switch (choice) 
+			{
+				case 1: //Addition
+					x = GetNumbers(userInput);
+					PerformCalculations.Addition(x, y);
+			}
+			
+		}
+		userInput.close(); //Close scanner
+		System.exit(0); //Shut down application		
+	}
+	public static double GetNumbers(Scanner userInput) 
+	{
+		double number = 0;
+		boolean numRecieved = false;
 		
-
+		while (numRecieved == false) 
+		{
+			try 
+			{
+				number = userInput.nextDouble();
+				numRecieved = true;
+			}
+			catch (Exception InputMismatchException) 
+			{
+				System.out.println("Input not valid, please re-enter your number");
+			}
+		}
+		
+		return number;
 	}
 
 }
