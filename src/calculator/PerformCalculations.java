@@ -8,7 +8,7 @@ public class PerformCalculations
 		System.out.println("2. [ Subtraction ]");
 		System.out.println("3. [ Multiplication ]");
 		System.out.println("4. [ Division ]");
-		System.out.println("5:) Close application");
+		System.out.println("5: { Close Application }");
 	}
 	
 	public static double Addition(double x, double y) //Addition Method
@@ -31,7 +31,7 @@ public class PerformCalculations
 	{
 		double result = 0;
 		
-		result = x * y;
+		result = x*y;
 		
 		return result;
 	}
@@ -41,15 +41,21 @@ public class PerformCalculations
 		
 		try 
 		{
-			result = x / y;
+			result = x/y;
 		}
-		catch (ArithmeticException e) 
+		catch (ArithmeticException e) //Double type can be divided by zero, returns Infinity
 		{
 			System.out.println("Error: " + e.getLocalizedMessage());
 			result = 0;
 		}
 			
 		return result;
+	}
+	public static String AnswerString(double x, double y, double z, char type) 
+	{
+		String answer = "ANSWER: " + x + " " + type + " " + y + " = " + z;
+		
+		return answer;
 	}
 
 }

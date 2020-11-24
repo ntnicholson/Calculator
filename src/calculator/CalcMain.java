@@ -22,32 +22,32 @@ public class CalcMain {
 					x = GetNumbers(userInput);
 					y = GetNumbers(userInput);
 					answer = PerformCalculations.Addition(x, y);
-					System.out.println("The Answer is: " + answer );
+					System.out.println(PerformCalculations.AnswerString(x, y, answer, '+'));
 					break;
-				case '2': //Addition
+				case '2': //Subtraction
 					x = GetNumbers(userInput);
 					y = GetNumbers(userInput);
 					answer = PerformCalculations.Subtraction(x, y);
-					System.out.println("The Answer is: " + answer );
+					System.out.println(PerformCalculations.AnswerString(x, y, answer, '-'));
 					break;
-				case '3': //Addition
+				case '3': //Multiplication
 					x = GetNumbers(userInput);
 					y = GetNumbers(userInput);
 					answer = PerformCalculations.Multiplication(x, y);
-					System.out.println("The Answer is: " + answer );
+					System.out.println(PerformCalculations.AnswerString(x, y, answer, '*'));
 					break;
 				case '4': //Division
 					x = GetNumbers(userInput);
 					y = GetNumbers(userInput);
 					answer = PerformCalculations.Division(x, y);
-					System.out.println("The Answer is: " + answer );
+					System.out.println(PerformCalculations.AnswerString(x, y, answer, '/'));
 					break;
 			}
 			
 		}while (choice != '5');
 		
 		userInput.close(); //Close scanner
-		System.out.println("Goodbye");
+		System.out.println("Goodbye"); //Tell user goodbye
 		System.exit(0); //Shut down application		
 	}
 	public static double GetNumbers(Scanner userInput) 
@@ -55,7 +55,7 @@ public class CalcMain {
 		double number = 0;
 		boolean validNum = false;
 		
-		System.out.println("Input Your Number: ");
+		System.out.print("Input Your Number: ");
 		
 		do
 		{
@@ -63,13 +63,14 @@ public class CalcMain {
 			if (userInput.hasNextDouble()) 
 			{
 				number = userInput.nextDouble();
-				validNum = true;
+				validNum = true; //valid number received
 				
 			}
-			else 
+			else
 			{
-				userInput.nextLine();
 				System.out.println("Input not valid, please re-enter your number");
+				userInput.nextLine();
+				
 			}
 			
 		} while (validNum == false);
